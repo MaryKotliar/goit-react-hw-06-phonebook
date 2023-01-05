@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+
 import { nanoid } from 'nanoid';
 import { Wrapper } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
