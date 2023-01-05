@@ -1,9 +1,18 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Wrapper } from './Filter.styled';
-
-export const Filter = ({ value, onChange }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { getFilter } from 'redux/selectors';
+import { filterReducer } from 'redux/filterSlice';
+export const Filter = () => {
+  const value = useSelector(getFilter);
+  console.log(value);
+  const dispatch = useDispatch();
   const filterInputId = nanoid();
+  const onChange = event => {
+    const normalizedValue = event.target.value.toLowerCase();
+    dispatch(filterReducer(normalizedValue));
+  };
   return (
     <Wrapper>
       <label htmlFor={filterInputId}>Find contacts by name</label>
@@ -17,7 +26,7 @@ export const Filter = ({ value, onChange }) => {
     </Wrapper>
   );
 };
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-};
+// Filter.propTypes = {
+//   value: PropTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// };
