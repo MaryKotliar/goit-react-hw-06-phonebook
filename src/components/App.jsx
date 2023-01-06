@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Filter } from './Filter/Filter';
 import { Container } from './Container/Container';
 import { GlobalStyle } from './GlobalStyle';
-import { useEffect } from 'react';
+
 import { getContacts } from 'redux/selectors';
 // const initialContacts = [
 //   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
@@ -22,9 +22,9 @@ export function App() {
 
   // const [filter, setFilter] = useState('');
   const contacts = useSelector(getContacts);
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  // }, [contacts]);
 
   // const addContact = contact => {
   //   const isInContacts = contacts.some(

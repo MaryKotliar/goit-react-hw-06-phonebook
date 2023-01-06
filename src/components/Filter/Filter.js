@@ -1,17 +1,17 @@
-
 import { nanoid } from 'nanoid';
 import { Wrapper } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFilter } from 'redux/selectors';
-import { filterReducer } from 'redux/filterSlice';
+import { changeFilter } from 'redux/filterSlice';
+const filterInputId = nanoid();
 export const Filter = () => {
   const value = useSelector(getFilter);
-  console.log(value);
   const dispatch = useDispatch();
-  const filterInputId = nanoid();
+
   const onChange = event => {
     const normalizedValue = event.target.value.toLowerCase();
-    dispatch(filterReducer(normalizedValue));
+
+    dispatch(changeFilter(normalizedValue));
   };
   return (
     <Wrapper>
@@ -26,7 +26,3 @@ export const Filter = () => {
     </Wrapper>
   );
 };
-// Filter.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   onChange: PropTypes.func.isRequired,
-// };

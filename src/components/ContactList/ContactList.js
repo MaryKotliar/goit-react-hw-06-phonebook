@@ -2,9 +2,9 @@ import { Contact } from 'components/Contact/Contact';
 import { Item } from './ContactList.styled';
 
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+import { getVisibleContacts } from 'redux/selectors';
 export const ContactList = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(getVisibleContacts);
   return (
     <>
       <ul>
@@ -17,8 +17,3 @@ export const ContactList = () => {
     </>
   );
 };
-
-// ContactList.propTypes = {
-//   items: PropTypes.arrayOf(object).isRequired,
-//   onDeleteContact: PropTypes.func.isRequired,
-// };
