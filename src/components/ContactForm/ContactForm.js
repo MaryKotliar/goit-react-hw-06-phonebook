@@ -1,7 +1,7 @@
 import { nanoid } from 'nanoid';
 import { Form, BtnSubmit } from './ContactForm.styled';
 import { useState } from 'react';
-import { getContacts, getVisibleContacts } from 'redux/selectors';
+import { getContacts } from 'redux/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
 const nameInputId = nanoid();
